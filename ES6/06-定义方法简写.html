@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义函数
+        function f1() {
+            return 'hello'
+        }
+
+        let f2 = function () {
+            return 'world'
+        }
+
+        console.log(`${f1()} ${f2()}`)
+
+        // 定义方法
+        let user = {
+            name: 'sushi',
+            age: 23,
+            sayHi: function () {
+                console.log('hello sushi')
+            },
+            // 定义方法简写
+            sayHello() {
+                console.log('hello libai')
+            }
+        }
+
+        user.sayHi()
+        user.sayHello()
+
+
+    </script>
+</body>
+
+</html>

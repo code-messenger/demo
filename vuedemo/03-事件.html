@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-bind:value="search.info"></input>
+        </div>
+        <div>{{search.info}}</div>
+        <div><button v-on:click="searchInfo()">查询</button></div>
+        <!-- 可以缩写为 @click -->
+        <div><button @click="searchInfo()">查询</button></div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                search: {
+                    info: '北京航空航天大学'
+                }
+            },
+            methods: {
+                searchInfo() {
+                    console.log('查询成功！')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

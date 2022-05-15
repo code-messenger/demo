@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let user = {
+            name: 'jerry',
+            age: 33
+        }
+
+        let user1 = user
+        console.log(user1)
+
+        let user2 = { ...user }
+        console.log(user2)
+
+        let name = { name: 'tom' }
+        let age = { age: 34 }
+        let user3 = { ...name, ...age }
+        console.log(user3)
+
+        let user4 = { ...user2, ...user3 }
+        console.log(user4)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h1 id="h1">{{message}}</h1>
+        </div>
+        <div><button @click="updateInfo">更新</button></div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: '床前明月光'
+            },
+            methods: {
+                showInfo() {
+                    console.log("showInfo......")
+                },
+                updateInfo() {
+                    this.message = '疑是地上霜'
+                }
+            },
+            // 初始化时四个钩子方法
+
+            // 第一个钩子方法触发时，Vue的属性、方法均未创建
+            beforeCreate() {
+                console.log('-----> beforeCreate')
+                // console.log(this.message)
+                // this.showInfo()
+            },
+
+            // 第二个钩子方法，Vue的属性、方法均已被创建
+            created() {
+                console.log('-----> created')
+                console.log(this.message)
+                this.showInfo()
+            },
+
+            // 第三个钩子方法，内存模板还未渲染页面元素
+            beforeMount() {
+                console.log('-----> beforeMount')
+                let text = document.getElementById('h1').innerText
+                console.log("内存模板=" + this.message)
+                console.log("页面元素=" + text)
+            },
+
+            // 第四个钩子方法，内存模板已经渲染页面元素
+            mounted() {
+                console.log('-----> mounted')
+                let text = document.getElementById('h1').innerText
+                console.log("内存模板=" + this.message)
+                console.log("页面元素=" + text)
+            },
+
+            // 更新时两个钩子方法
+            beforeUpdate() {
+                console.log('-----> mounted')
+                let text = document.getElementById('h1').innerText
+                console.log("内存模板=" + this.message)
+                console.log("页面元素=" + text) 
+            },
+            updated() {
+                console.log('-----> mounted')
+                let text = document.getElementById('h1').innerText
+                console.log("内存模板=" + this.message)
+                console.log("页面元素=" + text) 
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // var 不区分作用域
+        // let 区分作用域
+        {
+            var a = 100
+            let b = 200
+        }
+
+        console.log(a)
+        // console.log(b)
+
+        // var 可以重复定义变量
+        var c = 300
+        var c = 400
+
+        console.log(c)
+
+        // let 不可以重复定义变量
+        let d = 300
+        // let d = 400
+
+        console.log(d)
+
+        // var 提升变量声明
+        console.log(e)
+        var e = 700
+        
+        // let 不会提升变量声明
+        console.log(f)
+        let f = 100
+
+
+
+
+    </script>
+</body>
+
+</html>
