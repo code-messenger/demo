@@ -9,14 +9,8 @@
     <div class="search-container">
       <div class="search-wrapper">
         <div class="hospital-search">
-          <el-autocomplete
-            class="search-input"
-            prefix-icon="el-icon-search"
-            v-model="hosname"
-            :fetch-suggestions="querySearchAsync"
-            placeholder="点击输入医院名称"
-            @select="handleSelect"
-          >
+          <el-autocomplete class="search-input" prefix-icon="el-icon-search" v-model="hosname"
+            :fetch-suggestions="querySearchAsync" placeholder="点击输入医院名称" @select="handleSelect">
             <span slot="suffix" class="search-btn v-link highlight clickable selected">搜索</span>
           </el-autocomplete>
         </div>
@@ -31,25 +25,19 @@
             <div class="filter-wrapper">
               <span class="label">等级：</span>
               <div class="condition-wrapper">
-                <span
-                  class="item v-link clickable"
-                  :class="hostypeActiveIndex == index ? 'selected' : ''"
-                  v-for="(item,index) in hostypeList"
-                  :key="item.id"
-                  @click="hostypeSelect(item.value, index)"
-                >{{ item.name }}</span>
+                <span class="item v-link clickable" :class="hostypeActiveIndex == index ? 'selected' : ''"
+                  v-for="(item, index) in hostypeList" :key="item.id" @click="hostypeSelect(item.value, index)">{{
+                      item.name
+                  }}</span>
               </div>
             </div>
             <div class="filter-wrapper">
               <span class="label">地区：</span>
               <div class="condition-wrapper">
-                <span
-                  class="item v-link clickable"
-                  :class="provinceActiveIndex == index ? 'selected' : ''"
-                  v-for="(item,index) in districtList"
-                  :key="item.id"
-                  @click="districtSelect(item.value, index)"
-                >{{ item.name }}</span>
+                <span class="item v-link clickable" :class="provinceActiveIndex == index ? 'selected' : ''"
+                  v-for="(item, index) in districtList" :key="item.id" @click="districtSelect(item.value, index)">{{
+                      item.name
+                  }}</span>
               </div>
             </div>
           </div>
@@ -71,11 +59,7 @@
                     </div>
                   </div>
                 </div>
-                <img
-                  :src="'data:image/jpeg;base64,'+item.logoData"
-                  :alt="item.hosname"
-                  class="hospital-img"
-                />
+                <img :src="'data:image/jpeg;base64,' + item.logoData" :alt="item.hosname" class="hospital-img" />
               </div>
             </div>
           </div>
@@ -168,7 +152,7 @@ import dictApi from "../api/dict";
 export default {
   // 服务端异步渲染
   asyncData({ params, error }) {
-    return hospApi.pageShow(1, 10, null).then((res) => {
+    return hospApi.pageShow(1, 10, null).then(res => {
       return {
         list: res.data.pageModel.content,
         pages: res.data.pageModel.totalPages,
@@ -183,9 +167,9 @@ export default {
       hosname: "", // 医院名称
       hostypeList: [], // 医院等级集合
       districtList: [], // 地区集合
-
       hostypeActiveIndex: 0, // 选中医院等级索引
       provinceActiveIndex: 0, // 选中地区等级索引
+    
     };
   },
   created() {
@@ -194,7 +178,7 @@ export default {
   methods: {
     init() {
       // 查询医院等级集合
-      dictApi.findChildDateByDictCode("Hostype").then((res) => {
+      dictApi.findChildDateByDictCode("Hostype").then(res => {
         // 清空集合数据
         this.hostypeList = [];
         // 存入"全部"选项
@@ -204,12 +188,12 @@ export default {
         //   this.hostypeList.push(res.data.list[i]);
         // }
 
-        res.data.list.forEach((element) => {
+        res.data.list.forEach(element => {
           this.hostypeList.push(element);
         });
       });
       // 查询北京地区集合
-      dictApi.findChildDateByDictCode("Beijin").then((res) => {
+      dictApi.findChildDateByDictCode("Beijin").then(res => {
         // 清空集合数据
         this.districtList = [];
         // 存入"全部"选项
@@ -222,8 +206,8 @@ export default {
     },
     // 查询医院信息
     getHospitalList() {
-      hospApi.pageShow(this.page, this.limit, this.searchObj).then((res) => {
-        res.data.pageModel.content.forEach((element) => {
+      hospApi.pageShow(this.page, this.limit, this.searchObj).then(res => {
+        res.data.pageModel.content.forEach(element => {
           this.list.push(element);
         });
         this.pages = res.data.pageModel.totalPages;
@@ -261,9 +245,9 @@ export default {
       this.searchObj = [];
       if (queryString == "") return;
       // 查询数据
-      hospApi.findByHosname(queryString).then((res) => {
+      hospApi.findByHosname(queryString).then(res => {
         // 遍历集合封装数据
-        res.data.hospitalList.forEach((element) => {
+        res.data.hospitalList.forEach(element => {
           element.value = element.hosname;
         });
         // 存入数据
@@ -272,13 +256,13 @@ export default {
     },
     // 搜索选中数据时 跳转到详情页
     handleSelect(item) {
-      window.location.href = "/hospital/" + item.hoscode;
+      window.location.href = '/hospital/' + item.hoscode;
     },
 
     // 点击医院时 跳转到医院详情页面
     show(hoscode) {
-      window.location.href = "/hospital/" + item.hoscode;
-    },
-  },
+      window.location.href = '/hospital/' + hoscode;
+    }
+  }
 };
 </script>

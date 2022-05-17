@@ -170,8 +170,8 @@ export default {
         this.bookingRule = response.data.bookingRule;
       });
       //2查询科室信息
-      hospApi.findDepartment(this.hoscode).then(response => {
-        this.departmentVoList = response.data.list;
+      hospApi.findDept(this.hoscode).then(response => {
+        this.departmentVoList = response.data.deptList;
       });
     },
     // TODO schedule(depcode) {

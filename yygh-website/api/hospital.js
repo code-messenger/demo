@@ -19,5 +19,20 @@ export default {
             url: `${api_name}/findByHosname/${hosname}`,
             method: 'get',
         })
+    },
+
+    show(hoscode) {
+        return request({
+            url: `${api_name}/${hoscode}`,
+            method: 'get'
+        })
+    },
+
+    // 获取科室列表
+    findDept(hoscode) {
+        return request({
+            url: `${api_name}/department/${hoscode}`,
+            method: 'get'
+        })
     }
 }
