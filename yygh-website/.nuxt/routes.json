@@ -1,0 +1,30 @@
+[
+  {
+    "name": "hospital-detail-hoscode",
+    "path": "/hospital/detail/:hoscode?",
+    "component": "D:\\\\Codes\\\\vscode\\\\demo\\\\yygh-website\\\\pages\\\\hospital\\\\detail\\\\_hoscode.vue",
+    "chunkName": "pages/hospital/detail/_hoscode",
+    "_name": "_7f65a7ab"
+  },
+  {
+    "name": "hospital-notice-hoscode",
+    "path": "/hospital/notice/:hoscode?",
+    "component": "D:\\\\Codes\\\\vscode\\\\demo\\\\yygh-website\\\\pages\\\\hospital\\\\notice\\\\_hoscode.vue",
+    "chunkName": "pages/hospital/notice/_hoscode",
+    "_name": "_5b43adf2"
+  },
+  {
+    "name": "hospital-hoscode",
+    "path": "/hospital/:hoscode?",
+    "component": "D:\\\\Codes\\\\vscode\\\\demo\\\\yygh-website\\\\pages\\\\hospital\\\\_hoscode.vue",
+    "chunkName": "pages/hospital/_hoscode",
+    "_name": "_091fad9a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\Codes\\\\vscode\\\\demo\\\\yygh-website\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_6cfbba48"
+  }
+]
